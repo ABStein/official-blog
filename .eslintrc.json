@@ -1,3 +1,29 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "next",
+      "prettier"
+  ],
+  "plugins": ["react"],
+  "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+  },
+  "rules": {
+      "react/no-unescaped-entities": "off",
+      "react/react-in-jsx-scope": 0,
+      "react/prop-types": 0,
+      "@next/next/no-img-element": "off",
+      "@next/next/no-html-link-for-pages": "off",
+      "indent": [
+          2,
+          4,
+          { "SwitchCase": 1 }
+      ],
+      "quotes": [
+          2,
+          "single"
+      ]
+  }
 }
