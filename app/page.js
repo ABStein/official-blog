@@ -1,4 +1,7 @@
+import postsData from '../app/components/mockData/index'
+
 export default function HomePage() {
+    const  posts = postsData;
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
@@ -18,30 +21,16 @@ export default function HomePage() {
                             <h2 className='lg:text-2xl font-bold'>Latest Posts</h2>
 
                             <div className='mt-6 flex mx-auto lg:flex-row flex-col justify-around'>
-                                <div className='w-4/12'>
-                                    <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
-                                        <h2 className='text-xl'>Lorem ipsum</h2>
-                                        <p className='pt-4'>
-                                            Lorem ipsum dolor sit amet sollicitudin ultricies integer elit eiusmod. Consectetur malesuada netus sapien leo eleifend pulvinar cursus ornare aliquet eros facilisi. Adipiscing aliquam tortor leo laoreet dui mi non aliquet malesuada senectus sed
-                                        </p>
+                                {posts.map((post) => (
+                                    <div key={post.id} className='w-4/12'>
+                                        <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
+                                            <h2 className='text-xl'>{post.title}</h2>
+                                            <p className='pt-4'>
+                                                {post.content}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='w-4/12'>
-                                    <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
-                                        <h2 className='text-xl'>Lorem ipsum</h2>
-                                        <p className='pt-4'>
-                                            Lorem ipsum dolor sit amet sollicitudin ultricies integer elit eiusmod. Consectetur malesuada netus sapien leo eleifend pulvinar cursus ornare aliquet eros facilisi. Adipiscing aliquam tortor leo laoreet dui mi non aliquet malesuada senectus sed
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className='w-4/12'>
-                                    <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
-                                        <h2 className='text-xl'>Lorem ipsum</h2>
-                                        <p className='pt-4'>
-                                            Lorem ipsum dolor sit amet sollicitudin ultricies integer elit eiusmod. Consectetur malesuada netus sapien leo eleifend pulvinar cursus ornare aliquet eros facilisi. Adipiscing aliquam tortor leo laoreet dui mi non aliquet malesuada senectus sed
-                                        </p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
