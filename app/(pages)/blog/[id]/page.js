@@ -1,4 +1,3 @@
-// import { getStaticPaths } from 'next/dist/build/templates/pages';
 import postsData from '../../../components/mockData/index';
 
 export default function Post(params) {
@@ -19,8 +18,6 @@ export default function Post(params) {
     );
 }
 
-
-// Return a list of `params` to populate the [id] dynamic segment
 export function generateStaticParams() {
     const posts = postsData;
 

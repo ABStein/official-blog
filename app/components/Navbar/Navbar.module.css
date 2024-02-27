@@ -1,0 +1,8 @@
+.active {
+    /* this rgb is from tailwind itself to represent indigo-500 */
+    border-bottom: 4px solid rgb(79 70 229);
+}
+
+.inactive {
+    border-bottom: 4px solid transparent;
+}

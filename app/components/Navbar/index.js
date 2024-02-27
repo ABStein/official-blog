@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
+import styles from './Navbar.module.css';
 
 const links = [
     {
@@ -25,7 +26,7 @@ export default function Navbar() {
             <div className='flex justify-center items-center px-6 md:px-14 lg:px-24 w-full'>
                 <div className='flex flex-row'>
                     {links.map(({ href, label}) => (
-                        <Link key={href} className={`${pathname === href ? 'active border-b-4 border-b-indigo-500' : 'hover:border-b-4 hover:border-b-indigo-500'} nav-link md:text-lg text-sm text-gray-900 inline-block px-2 cursor-pointer mx-2`} href={href}>
+                        <Link key={href} className={`${pathname === href ? styles['active'] : styles['inactive']} md:text-lg text-sm text-gray-900 inline-block px-2 cursor-pointer mx-2 nav-link`} href={href}>
                             {label}
                         </Link>
                     ))}
