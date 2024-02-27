@@ -1,7 +1,16 @@
-import postsData from '../app/components/mockData/index'
+import Link from 'next/link';
+import { databases } from './appwrite';
 
-export default function HomePage() {
-    const  posts = postsData;
+async function getPosts() {
+    const req = await databases.listDocuments('65de2e37ed03e92b1de0', '65de2e45f20e6bd7518c');
+    const posts = req.documents;
+    return posts;
+}
+
+export default async function HomePage() {
+    const postsData = getPosts();
+
+    const [posts] = await Promise.all([postsData])
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
@@ -21,13 +30,18 @@ export default function HomePage() {
                             <h2 className='lg:text-2xl font-bold'>Latest Posts</h2>
 
                             <div className='mt-6 flex mx-auto lg:flex-row flex-col justify-around'>
-                                {posts.map((post) => (
-                                    <div key={post.id} className='w-4/12'>
+                                {posts.slice(0, 3).map((post) => (
+                                    <div key={post.$id} className='w-4/12'>
                                         <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
-                                            <h2 className='text-xl'>{post.title}</h2>
-                                            <p className='pt-4'>
-                                                {post.content}
-                                            </p>
+                                            <Link href={`/blog/${post.slug}`}>
+                                                <h2 className='text-xl'>{post.title}</h2>
+                                                <p className='pt-4'>
+                                                    {`${post.content.substring(
+                                                        0,
+                                                        100
+                                                    )}...`}
+                                                </p>
+                                            </Link>
                                         </div>
                                     </div>
                                 ))}
