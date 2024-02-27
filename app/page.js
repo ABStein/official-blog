@@ -1,32 +1,52 @@
-import Layout from './layout';
-import Image from 'next/image';
-import computerSvg from '../public/programming.svg';
-
 export default function HomePage() {
     return (
-            <section className='lg:pt-12 pt-8 pb-40'>
-                <div className='mx-auto lg:py-12 max-w-7xl'>
-                    <div className='flex lg:flex-row flex-col justify-between'>
-                        <div className='flex flex-col px-6 self-center lg:text-left lg:pt0 pt-8 max-w-xl'>
-                            <h2 className='lg:text-5xl text-3xl font-bold text-neutral-50'>
-                                Hi, I am Andrew, Software Developer
-                            </h2>
-                            <p className='text-neutral-50 pt-6'>
-                                I am is passionate Software Engineer who lives
-                                in Chicago. Some of my favorite things in tech
-                                are Node.js, Ruby, and a passion for all things React and Next.js.
-                            </p>
-                            <a
-                                className='nav-link bg-neutral-50 text-slate-800 lg:text-xl mt-10 mb-4 lg:w-64 sm:w-48 py-4 px-4 rounded text-center block hover:bg-slate-900 hover:text-neutral-50'
-                                href='https://drive.google.com/file/d/1Eyzk_0yh3L02jvqIwty2K03oAK09CcPD/view?usp=sharing'
-                                target='_blank'
-                                rel='noreferrer'
-                            >
-                                Checkout My Resume
-                            </a>
+        <div className='lg:pt-12 pt-8'>
+            <div className='responsive-content-width'>
+                <div className='lg:px-24 px-6'>
+                    <div className='w-10/12 mx-auto'>
+                        <h1 className='md:text-center lg:text-6xl text-3xl text-gray-900'>
+                            Hey there! I'm{' '}
+                            <span className='font-bold text-indigo-500 hover:bg-indigo-500 hover:text-gray-50 nav-link'>Andrew</span>.
+                        </h1>
+                        <p className='md:text-left lg:text-4xl md:text-2xl sm:text-xl text-gray-900 md:pt-6 pt-3'>
+                            a Web Developer from Chicago, Illinois. I am passionate about building accessible, performant, and responsive web experiences, but I am even more passionate about growing and learning on this journey through the wild world of web development.
+                        </p>
+                    </div>
+
+                    <div className='pt-24'>
+                        <div className='w-10/12 mx-auto'>
+                            <h2 className='lg:text-2xl font-bold'>Latest Posts</h2>
+
+                            <div className='mt-6 flex mx-auto lg:flex-row flex-col justify-around'>
+                                <div className='w-4/12'>
+                                    <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
+                                        <h2 className='text-xl'>Lorem ipsum</h2>
+                                        <p className='pt-4'>
+                                            Lorem ipsum dolor sit amet sollicitudin ultricies integer elit eiusmod. Consectetur malesuada netus sapien leo eleifend pulvinar cursus ornare aliquet eros facilisi. Adipiscing aliquam tortor leo laoreet dui mi non aliquet malesuada senectus sed
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className='w-4/12'>
+                                    <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
+                                        <h2 className='text-xl'>Lorem ipsum</h2>
+                                        <p className='pt-4'>
+                                            Lorem ipsum dolor sit amet sollicitudin ultricies integer elit eiusmod. Consectetur malesuada netus sapien leo eleifend pulvinar cursus ornare aliquet eros facilisi. Adipiscing aliquam tortor leo laoreet dui mi non aliquet malesuada senectus sed
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className='w-4/12'>
+                                    <div className='p-8 shadow-2xl rounded-2xl hover:-translate-y-6 nav-link mx-2'>
+                                        <h2 className='text-xl'>Lorem ipsum</h2>
+                                        <p className='pt-4'>
+                                            Lorem ipsum dolor sit amet sollicitudin ultricies integer elit eiusmod. Consectetur malesuada netus sapien leo eleifend pulvinar cursus ornare aliquet eros facilisi. Adipiscing aliquam tortor leo laoreet dui mi non aliquet malesuada senectus sed
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
     );
 }
