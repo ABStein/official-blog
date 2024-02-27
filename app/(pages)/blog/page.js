@@ -8,8 +8,9 @@ async function getPosts() {
 
 export default async function Blog() {
     const postsData = getPosts();
+    /* eslint-disable */
     const [posts] = await Promise.all([postsData]);
-
+    /* eslint-enable */
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>

@@ -21,11 +21,8 @@ export async function generateStaticParams({params}) {
 // }
 
 export default async function Post() {
-
-
-    const postData = getPostData();
-    const [postsData] = await Promise.all([postData]);
-    console.log(postsData);
+    // const [postsData] = await Promise.all([postData]);
+    // console.log(postsData);
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
