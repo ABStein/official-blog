@@ -1,13 +1,13 @@
 import { databases } from '../../../appwrite';
 
-export async function generateStaticParams({params}) {
-    const postData = await databases.getDocument('65de2e37ed03e92b1de0', '65de2e45f20e6bd7518c', params.$id);
-    return {
-        props: {
-            postData
-        }
-    };
-}
+// export async function generateStaticParams({params}) {
+//     const postData = await databases.getDocument('65de2e37ed03e92b1de0', '65de2e45f20e6bd7518c', params.$id);
+//     return {
+//         props: {
+//             postData
+//         }
+//     };
+// }
 
 // where params.$id is the post ID from the URL path
 
