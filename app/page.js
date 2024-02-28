@@ -1,18 +1,9 @@
 import Link from 'next/link';
-import { databases } from './appwrite';
+import { getPosts } from './lib/appwrite';
 import styles from './Homepage.module.css';
 
-async function getPosts() {
-    const req = await databases.listDocuments('65de2e37ed03e92b1de0', '65de2e45f20e6bd7518c');
-    const posts = req.documents;
-    return posts;
-}
-
 export default async function HomePage() {
-    const postsData = getPosts();
-    /* eslint-disable */
-    const [posts] = await Promise.all([postsData])
-    /* eslint-enable */
+    const postsData = await getPosts();
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
@@ -32,9 +23,9 @@ export default async function HomePage() {
                             <h2 className='lg:text-2xl font-bold my-2'>Recently posted</h2>
 
                             <div className='mt-6 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
-                                {posts.slice(0, 3).map((post) => (
+                                {postsData.slice(0, 3).map((post) => (
                                     <div key={post.$id} className='p-8 shadow-2xl shadow-gray-900 rounded-2xl hover:-translate-y-6 nav-link'>
-                                        <Link href={`/blog/${post.slug}`}>
+                                        <Link href={`/blog/${post.$id}`}>
                                             <h2 className='text-xl font-semibold'>{post.title}</h2>
                                             <p className='pt-4'>
                                                 {`${post.content.substring(

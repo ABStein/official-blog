@@ -1,16 +1,9 @@
-import { databases } from '../../appwrite';
-
-async function getPosts() {
-    const req = await databases.listDocuments('65de2e37ed03e92b1de0', '65de2e45f20e6bd7518c');
-    const posts = req.documents;
-    return posts;
-}
+import { getPosts } from '../../lib/appwrite';
 
 export default async function Blog() {
-    const postsData = getPosts();
-    /* eslint-disable */
-    const [posts] = await Promise.all([postsData]);
-    /* eslint-enable */
+    const posts = await getPosts();
+    // format date to be readible from ISO 8601 format.
+
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
