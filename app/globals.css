@@ -7,6 +7,31 @@ body {
     margin: 0;
 }
 
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+
+@layer base {
+    ::-webkit-scrollbar-track {
+        @apply bg-gray-50;
+    }
+}
+
+
+@layer base {
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-900;
+    }
+}
+
+
+@layer base {
+    ::selection {
+        @apply bg-gray-900 text-gray-50;
+    }
+}
+
 .nav-link {
     transition: 0.3s;
 }
