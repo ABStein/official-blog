@@ -18,13 +18,12 @@ export default async function HomePage() {
                         </p>
                     </div>
 
-                    <div className='pt-24'>
+                    <div className='pt-10'>
                         <div className='w-10/12 mx-auto'>
                             <h2 className='lg:text-2xl font-bold my-2'>Recently posted</h2>
-
                             <div className='mt-6 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                                 {postsData.slice(0, 3).map((post) => (
-                                    <div key={post.$id} className='p-8 shadow-2xl shadow-gray-900 rounded-2xl hover:-translate-y-6 nav-link'>
+                                    <div key={post.$id} className='p-8 shadow-2xl shadow-gray-900 rounded-2xl lg:hover:-translate-y-6 nav-link'>
                                         <Link href={`/blog/${post.$id}`}>
                                             <h2 className='text-xl font-semibold'>{post.title}</h2>
                                             <p className='pt-4'>
