@@ -1,11 +1,14 @@
-import { getPost } from '../../../lib/initSupabase';
+import { getPostBySlug } from '../../../lib/initSupabase';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import CodeSnippet from '@/app/components/CodeSnippet';
+export const revalidate = 3600;
 
-export default async function Post({ params }) {
-    const post = await getPost(params.id);
-    console.log(post);
+export default async function Post({ params: { slug }}) {
+    const post = await getPostBySlug(slug);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const date = new Date(`${post.created_at}`);
     const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
@@ -13,8 +16,17 @@ export default async function Post({ params }) {
                     <div className='w-10/12 mx-auto'>
                         <h1 className='md:text-center lg:text-6xl text-3xl text-gray-900'>{post.title}</h1>
                         <div className='lg:my-12 my-6'>
-                            <p className='text-2xl text-gray-900'>{post.content}</p>
+                            <span className='text-xl text-gray-900'>
+                                <MDXRemote
+                                    source={post.content}
+                                    components={{
+                                        pre: CodeSnippet,
+                                        p: (props) => <p {...props} className='pb-4' />,
+                                    }}
+                                />
+                            </span>
                             <p className='text-gray-900 text-base py-8'>Posted: {formattedDate}</p>
+
                         </div>
                     </div>
                 </div>

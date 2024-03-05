@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -8,10 +9,20 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function getPosts() {
     const { data: posts, error } = await supabase.from('posts').select();
-    return posts;
+    try {
+        return posts;
+    } catch (e) {
+        console.log(e);
+        return error;
+    }
 }
 
-export async function getPost(id) {
-    const { data: post, error } = await supabase.from('posts').select().eq('id', id);
-    return post[0];
-}
+export const getPostBySlug = cache(async (slug) => {
+    const { data: post, error } = await supabase.from('posts').select().eq('slug', slug);
+    try {
+        return post[0];
+    } catch (e) {
+        console.log(e);
+        return error;
+    }
+})
