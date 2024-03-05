@@ -1,6 +1,7 @@
 import { getPostBySlug } from '../../../lib/initSupabase';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import CodeSnippet from '@/app/components/CodeSnippet';
+import { Suspense } from 'react'
 export const revalidate = 3600;
 
 export default async function Post({ params: { slug }}) {
@@ -17,13 +18,15 @@ export default async function Post({ params: { slug }}) {
                         <h1 className='md:text-center lg:text-6xl text-3xl text-gray-900'>{post.title}</h1>
                         <div className='lg:my-12 my-6'>
                             <span className='text-xl text-gray-900'>
-                                <MDXRemote
-                                    source={post.content}
-                                    components={{
-                                        pre: CodeSnippet,
-                                        p: (props) => <p {...props} className='pb-4' />,
-                                    }}
-                                />
+                                <Suspense fallback={<p>Loading content...🚀</p>}>
+                                    <MDXRemote
+                                        source={post.content}
+                                        components={{
+                                            pre: CodeSnippet,
+                                            p: (props) => <p {...props} className='pb-4' />,
+                                        }}
+                                    />
+                                </Suspense>
                             </span>
                             <p className='text-gray-900 text-base py-8'>Posted: {formattedDate}</p>
 
