@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getPosts } from './lib/appwrite';
+import { getPosts } from './lib/initSupabase';
 import styles from './Homepage.module.css';
 
 export default async function HomePage() {
@@ -24,7 +24,7 @@ export default async function HomePage() {
                             <div className='mt-6 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                                 {postsData.slice(0, 3).map((post) => (
                                     <div key={post.$id} className='p-8 shadow-2xl shadow-gray-900 rounded-2xl lg:hover:-translate-y-6 nav-link'>
-                                        <Link href={`/blog/${post.$id}`}>
+                                        <Link href={`/blog/${post.id}`}>
                                             <h2 className='text-xl font-semibold'>{post.title}</h2>
                                             <p className='pt-4'>
                                                 {`${post.content.substring(

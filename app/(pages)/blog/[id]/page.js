@@ -1,9 +1,10 @@
-import { getPost } from '../../../lib/appwrite';
+import { getPost } from '../../../lib/initSupabase';
 
 export default async function Post({ params }) {
     const post = await getPost(params.id);
+    console.log(post);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(`${post.$createdAt}`);
+    const date = new Date(`${post.created_at}`);
     const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
     return (
         <div className='lg:pt-12 pt-8'>
