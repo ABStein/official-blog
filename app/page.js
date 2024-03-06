@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getPosts, getPostBySlug } from './lib/initSupabase';
+import { getPosts } from './lib/initSupabase';
 import AnimatedComponent from './components/AnimatedComponent';
 
 export default async function HomePage() {
