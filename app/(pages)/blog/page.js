@@ -19,7 +19,7 @@ export default async function Blog() {
                             {posts.map((post) => (
                                 <Link href={`/blog/${post.slug}/`} key={post.id}>
                                     <ArticleCard
-                                        modifier='lg:hover:-translate-y-2 nav-link shadow-2xl shadow-gray-900'
+                                        modifier='lg:hover:-translate-y-2 nav-link shadow-xl shadow-gray-900'
                                         image={post.hero_image }
                                         title={post.title}
                                         description={`${post.content.substring(
