@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getPosts, getPostBySlug } from './lib/initSupabase';
-import styles from './Homepage.module.css';
 
 export const preload = async ({ params: { slug } }) => {
     const post = await getPostBySlug(slug);
