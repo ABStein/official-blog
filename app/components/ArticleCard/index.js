@@ -1,7 +1,7 @@
 function ArticleCard({ modifier, title, description, image, date }) {
     return (
         <div
-            className={`${modifier} flex flex-col overflow-hidden rounded-xl bg-clip-border text-gray-900 hover:text-indigo-500 shadow-md h-full`}
+            className={`${modifier} flex flex-col overflow-hidden rounded-xl bg-clip-border text-gray-900 shadow-md h-full`}
         >
             <div className='m-0 overflow-hidden bg-transparent rounded-none shadow-none bg-clip-border'>
                 <img src={image} alt='' />
