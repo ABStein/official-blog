@@ -19,7 +19,12 @@ export default function RootLayout({ children }) {
     return (
         <html lang='en'>
             <body className={`background-gradient ${poppins.className}`}>
-                <NextTopLoader />
+                <NextTopLoader
+                    // color is gray-900
+                    color='#212121'
+                    height={4}
+                    showSpinner={false}
+                />
                 <Navbar />
                 {children}
                 <Footer />
