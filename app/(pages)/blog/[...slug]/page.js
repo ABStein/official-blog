@@ -2,7 +2,11 @@ import { getPostBySlug } from '../../../lib/initSupabase';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import CodeSnippet from '@/app/components/CodeSnippet';
 import { Suspense } from 'react'
-export const revalidate = 3600;
+
+export const preload = async ({ params: { slug } }) => {
+    const post = await getPostBySlug(slug);
+    return { post };
+}
 
 export default async function Post({ params: { slug }}) {
     const post = await getPostBySlug(slug);
