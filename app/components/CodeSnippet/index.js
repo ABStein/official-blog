@@ -3,7 +3,7 @@ import { Code } from 'bright'
 function CodeSnippet(props) {
     return (
         <Code
-            lineNumbers={true}
+            codeClassName='lg:text-sm text-xs'
             {...props}
             theme={'dracula'}
         />
