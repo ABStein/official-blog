@@ -17,7 +17,7 @@ export default async function HomePage() {
                     <div className='w-10/12 mx-auto'>
                         <h1 className='md:text-center lg:text-6xl text-3xl text-gray-900'>
                             Hey there! I'm{' '}
-                            <span className={`font-bold text-indigo-500 ${styles['name-underline']}`}>Andrew</span>.
+                            <span className='font-bold text-indigo-500'>Andrew</span>.
                         </h1>
                         <p className='md:text-left lg:text-4xl md:text-2xl sm:text-xl text-gray-900 md:pt-6 pt-3'>
                             a Web Developer from Chicago, Illinois. I am passionate about building accessible, performant, and responsive web experiences, but I am even more passionate about growing and learning on this journey through the wild world of web development.
