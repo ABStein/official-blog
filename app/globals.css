@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    background: url('../public/fresh-oasis.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
+@layer base {
+    :root {
+        @apply bg-sky-300
+
+    }
 }
 
 body {
