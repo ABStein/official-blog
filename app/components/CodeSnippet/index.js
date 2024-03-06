@@ -1,4 +1,3 @@
-'use server';
 import { Code } from 'bright'
 
 function CodeSnippet(props) {

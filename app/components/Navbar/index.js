@@ -21,12 +21,21 @@ const links = [
 
 export default function Navbar() {
     const pathname = usePathname();
+
+    const isActive = (href) => {
+        // Special case for blog links to include all blog subpaths
+        if (href.startsWith('/blog') && pathname.startsWith('/blog')) {
+            return true;
+        }
+        // Special case for home page
+        return pathname === href;
+    };
     return (
         <header className='mx-auto lg:pt-32 pt-12 mb-6'>
             <div className='flex justify-center items-center px-6 md:px-14 lg:px-24 w-full'>
                 <div className='flex flex-row'>
                     {links.map(({ href, label}) => (
-                        <Link key={href} className={`${pathname === href ? styles['active'] : styles['inactive']} md:text-lg text-sm text-gray-900 inline-block px-2 cursor-pointer mx-2`} href={href}>
+                        <Link key={href} className={`${isActive(href) ? styles['active'] : styles['inactive']} md:text-lg text-sm text-gray-900 inline-block px-2 cursor-pointer mx-2`} href={href}>
                             {label}
                         </Link>
                     ))}
