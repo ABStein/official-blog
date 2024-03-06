@@ -10,9 +10,9 @@ export default async function Post({ params: { slug }}) {
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
-                <div className='lg:px-24 px-6'>
-                    <div className='w-11/12 mx-auto px-4'>
-                        <h1 className='md:text-center lg:text-6xl text-3xl text-gray-900'>{post.title}</h1>
+                <div className='lg:px-20 px-6'>
+                    <div className='xl:w-9/12 lg:w-10/12 md:w-11/12 sm:w-full md:px-9 mx-auto'>
+                        <h1 className='md:text-5xl text-3xl text-gray-900'>{post.title}</h1>
                         <div className='lg:my-12 my-6'>
                             <span className='text-xl text-gray-900'>
                                 <MDXRemote
