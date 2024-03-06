@@ -1,11 +1,11 @@
 import { Poppins } from 'next/font/google';
 import Navbar from './components/Navbar';
-import Banner from './components/Banner';
 import Footer from './components/Footer';
 //https://fontawesome.com/docs/web/use-with/react/use-with
 import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS
+import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 
 const poppins = Poppins({weight: ['100', '200', '300', '400','500', '600', '700', '800', '900',], subsets: ['latin'], display: 'swap'});
@@ -19,8 +19,13 @@ export default function RootLayout({ children }) {
     return (
         <html lang='en'>
             <body className={`background-gradient ${poppins.className}`}>
+                <NextTopLoader
+                    // color is gray-900
+                    color='#212121'
+                    height={4}
+                    showSpinner={false}
+                />
                 <Navbar />
-                <Banner />
                 {children}
                 <Footer />
             </body>

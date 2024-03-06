@@ -2,6 +2,24 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import styles from './Navbar.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faLinkedin,
+    faGithub,
+} from '@fortawesome/free-brands-svg-icons';
+
+const icons = [
+    {
+        href: 'https://github.com/ABStein',
+        icon: faGithub,
+        alt: 'Check out my Github'
+    },
+    {
+        href: 'https://www.linkedin.com/in/andrew-stein-755b8b11a',
+        icon: faLinkedin,
+        alt: 'Connect with me on LinkedIn'
+    },
+]
 
 const links = [
     {
@@ -43,6 +61,18 @@ export default function Navbar() {
                 <Link className='bg-gray-900 text-gray-50 hover:bg-indigo-500 hover:text-gray-50 mx-2 p-2 inline-block cursor-pointer md:text-lg text-sm rounded-md nav-link' href='https://drive.google.com/file/d/1Eyzk_0yh3L02jvqIwty2K03oAK09CcPD/view?usp=sharing' target='_blank' rel='noreferrer'>
                     Resume
                 </Link>
+
+                {icons.map(({icon, href, alt}, index) => (
+                    <Link
+                        href={href}
+                        className='nav-link hover:text-indigo-500 text-gray-900 text-xl px-2 py-1 '
+                        target='_blank'
+                        key={index}
+                        alt={alt}
+                    >
+                        <FontAwesomeIcon size='lg' icon={icon} />
+                    </Link>
+                ))}
             </div>
         </header>
     );
