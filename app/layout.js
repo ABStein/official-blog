@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS
-import { Suspense } from 'react';
+import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 
 const poppins = Poppins({weight: ['100', '200', '300', '400','500', '600', '700', '800', '900',], subsets: ['latin'], display: 'swap'});
@@ -19,10 +19,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang='en'>
             <body className={`background-gradient ${poppins.className}`}>
+                <NextTopLoader />
                 <Navbar />
-                <Suspense fallback={<p>Loading content...🚀</p>}>
-                    {children}
-                </Suspense>
+                {children}
                 <Footer />
             </body>
         </html>
