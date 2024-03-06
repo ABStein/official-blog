@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
-            <body className={`background-gradient ${poppins.className}`}>
+            <body className={`${poppins.className}`}>
                 <NextTopLoader
                     // color is gray-900
                     color='#212121'

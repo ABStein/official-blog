@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    background: url('../public/fresh-oasis.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -43,11 +49,4 @@ body {
     .responsive-content-width {
         @apply mx-auto lg:py-12 max-w-7xl
     }
-}
-
-.background-gradient {
-    background: url('../public/fresh-oasis.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
 }
