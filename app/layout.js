@@ -1,11 +1,11 @@
 import { Poppins } from 'next/font/google';
 import Navbar from './components/Navbar';
-import Banner from './components/Banner';
 import Footer from './components/Footer';
 //https://fontawesome.com/docs/web/use-with/react/use-with
 import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS
+import { Suspense } from 'react';
 import './globals.css';
 
 const poppins = Poppins({weight: ['100', '200', '300', '400','500', '600', '700', '800', '900',], subsets: ['latin'], display: 'swap'});
@@ -20,8 +20,9 @@ export default function RootLayout({ children }) {
         <html lang='en'>
             <body className={`background-gradient ${poppins.className}`}>
                 <Navbar />
-                <Banner />
-                {children}
+                <Suspense fallback={<p>Loading content...🚀</p>}>
+                    {children}
+                </Suspense>
                 <Footer />
             </body>
         </html>
