@@ -111,7 +111,7 @@ export default async function HomePage() {
                     </div>
 
                     <div className='pt-10'>
-                        <div className='w-10/12 mx-auto'>
+                        <div className='xl:w-10/12 xl:mx-auto'>
                             <h2 className='lg:text-2xl font-bold my-2'>Recently posted</h2>
                             <div className='mt-6 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                                 {latestPosts.slice(0, 3).map((post) => (
