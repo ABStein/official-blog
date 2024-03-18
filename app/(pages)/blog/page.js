@@ -27,8 +27,8 @@ export default async function Blog() {
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
                 <div className='lg:px-24 px-6'>
-                    <div className='w-11/12 mx-auto'>
-                        <div className='grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-4'>
+                    <div className='xl:w-10/12 xl:mx-auto'>
+                        <div className='grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
                             {latestPosts.map((post) => (
                                 <Link href={`/blog/${post.slug}/`} key={post.id}>
                                     <ArticleCard
