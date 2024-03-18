@@ -1,0 +1,60 @@
+# Things I wish I knew about React before learning it, Part 1
+
+When I first started using React I didn’t have much of any experience using it. Back in 2018 when I was in bootcamp we learned what it meant to render and manipulate data from our backend applications in order to display them using  `Vue.js`. I still remember feeling slightly relieved since Vue seemed to be more of a soft landing into the world of frontend javascript frameworks, given we had spent the past 8 weeks learning and practicing programming fundamentals using Ruby. But even back then, React was something almost everyone was talking about. For me though, Javascript in general was a bit difficult to pick up right away(which seems to be a consensus for many new developers).
+
+Fast forward a few years and Javascript has, ironically, become the programming language I use everyday and that’s when I dove head first into the wonderful(and seeming endless) world of React. I would lie though if I didn’t say it went without any hiccups, and that is what this blog is about, all those beginner things I wish I knew before working in React.
+
+## At it’s core, what is React?
+
+Like Vue.js, it is a tool used to interact and manipulate the Document Object Model, or DOM, using javascript. This is why when we break down the simplest of React components into vanilla javascript it all becomes so clear.
+
+
+// use bright tabs for code blocks
+
+
+
+
+```new-component.js
+import React from 'react';
+```
+
+```new-component.js
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+const myNewReactELement = {
+ // This is what element we are creating
+ type: 'p',
+ // this is where we define the props the element will have
+ props: {
+    'cool-dude': 'you betcha!'
+  },
+ // This is the text that will be rendered within the div we are creating,
+ // the same as innerText in HTML
+  children: 'Make yourself at home!',
+};
+
+const container = document.querySelector('div');
+const root = createRoot(container);
+root.render(myNewReactELement);
+
+// In JSX this all esssentially renders a single div element with some
+// innerText as the children, in this case "Make yourself at home!"
+<div id="root">
+ <p cool-dude="you betcha!">
+  Make yourself at home!
+ </p>
+</div>
+```
+
+The above example if pretty rudimentary, but the ideas is very simply to realize that all we are really doing at the end of the day is writing plain ol’ javascript. The React library is doing a lot of cool things under the hood to prepare what we’ve written to be read by the browser.
+
+## What is the Virtual DOM and why is that important for React?
+
+This took me a bit to understand myself but like before let’s use try to break this down and understand what the DOM is first. For example, say you’ve been drowning in memes your friends are sending you and you NEED to understand them to not fall behind in the conversation. So, of course, you go to [https://knowyourmeme.com/memes](https://knowyourmeme.com/memes) to find out why Squirtle is now a Jazz king 🎷. Once you hit that site, your browser takes the websites HTML and creates a tree of the elements on the page illustrated below. For example, in the image below, let’s call that top node a `<body>` tag, and the 2 subsequent nodes some `<section>` tags, and in each section we have a a few paragraph, or `<p>` tags.
+
+![DOM Tree.svg](https://rhbyzhuaaoerydufggrk.supabase.co/storage/v1/object/sign/Images/DOM%20Tree.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvRE9NIFRyZWUuc3ZnIiwiaWF0IjoxNzEwNzM0MjM1LCJleHAiOjE3NDIyNzAyMzV9.p90k2Z9kAsGOvONLTEGfm2nRu_lKL3c5QOhTiSTKQBo&t=2024-03-18T03%3A57%3A15.793Z)
+
+Now that you see what the DOM actually is, let’s say one of those `<p>` tags has a button that adds or removes a meme from the memes database. Every time that action takes place, the whole page get’s re-rendered since it will take the browser a lot longer to compare what was on the page before you added or removed a meme, then it would take to just re-render the whole page. As you probably guessed already, this is not a great user experience. Enter the Virtual DOM! React will actually make its own representation of the DOM and represents it as a javascript object. Now, when we add or delete a meme from the page - React will compare its own representation of the DOM against the site’s DOM and lets the browser know what to change on the page. By keeping this lightweight in-memory representation of the actual DOM, and applying only the necessary updates when we interact with the page, we vastly improve performance and user experience in React applications.
+
+There are a few other things I will discuss in a later post, but this at least gives us a metaphorical “peak behind of the curtain” of what makes tools like React really awesome.
