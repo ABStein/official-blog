@@ -21,7 +21,8 @@
     "nextjs-toploader": "^1.6.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-typed": "^2.0.12"
+    "react-typed": "^2.0.12",
+    "seti-icons": "^0.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
