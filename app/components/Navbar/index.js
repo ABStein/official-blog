@@ -54,7 +54,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </div>
-                <Link className='bg-gray-900 text-gray-50 hover:bg-indigo-500 hover:text-gray-50 mx-2 p-2 inline-block cursor-pointer md:text-lg text-sm rounded-md nav-link' href='https://drive.google.com/file/d/1Eyzk_0yh3L02jvqIwty2K03oAK09CcPD/view?usp=sharing' target='_blank' rel='noreferrer'>
+                <Link className='bg-gray-900 text-gray-50 hover:bg-indigo-500 hover:text-gray-50 mx-2 p-2 inline-block cursor-pointer md:text-lg text-sm rounded-md nav-link' href='https://drive.google.com/file/d/1NRiEVTDCSEcLudo95zl7Nzces14OUURf/view?usp=drive_link' target='_blank' rel='noreferrer'>
                     Resume
                 </Link>
 
