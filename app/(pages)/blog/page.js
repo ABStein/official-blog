@@ -2,19 +2,11 @@ import Link from 'next/link';
 import { getPosts } from '../../lib/initSupabase';
 import ArticleCard from '@/app/components/ArticleCard';
 import dateFormatter from '@/app/lib/utils/dateFormatter';
+import getLatestPosts from '@/app/lib/utils/getLatestPosts';
 
 export default async function Blog() {
     // get all posts
     const posts = await getPosts();
-    // display latest posts helper function
-    const getLatestPosts = (posts) => {
-        posts.sort((a, b) => {
-            const postA = new Date(a.created_at);
-            const postB = new Date(b.created_at);
-            return postB - postA;
-        });
-        return posts;
-    }
     // get latest posts
     const latestPosts = getLatestPosts(posts);
     return (

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getPosts } from './lib/initSupabase';
 import styles from './Homepage.module.scss';
 import dateFormatter from '@/app/lib/utils/dateFormatter';
+import getLatestPosts from '@/app/lib/utils/getLatestPosts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,14 +10,7 @@ export default async function HomePage() {
     // get all posts
     const posts = await getPosts();
     // display latest posts
-    const getLatestPosts = (posts) => {
-        posts.sort((a, b) => {
-            const postB = new Date(b.created_at);
-            const postA = new Date(a.created_at);
-            return postB - postA;
-        });
-        return posts;
-    }
+
     // get latest posts
     const latestPosts = getLatestPosts(posts);
     return (
@@ -35,9 +29,9 @@ export default async function HomePage() {
                     <h2 className='text-xl font-medium my-2'>Recently posted</h2>
                     <div className='my-6 mx-auto grid grid-cols-1 gap-9'>
                         {latestPosts.slice(0, 4).map((post) => (
-                            <div key={post.id} className='rounded-2xl nav-link group'>
+                            <div key={post.id} className='nav-link group border-b-gray-300 pb-4 border-b-2'>
                                 <Link href={`/blog/${post.slug}/`}>
-                                    <p className='pb-4 text-indigo-500'>{dateFormatter(post.created_at)}</p>
+                                    <p className='pb-4 text-gray-900'>{dateFormatter(post.created_at)}</p>
                                     <h3 className='group-hover:text-sky-400 text-xl font-semibold'>{post.title}</h3>
                                     <p className='pt-4'>
                                         {post.description}
