@@ -4,19 +4,9 @@ When I first started using React I didn’t have much of any experience using it
 
 Fast forward a few years and Javascript has, ironically, become the programming language I use everyday and that’s when I dove head first into the wonderful(and seeming endless) world of React. I would lie though if I didn’t say it went without any hiccups, and that is what this blog is about, all those beginner things I wish I knew before working in React.
 
-## At it’s core, what is React?
+### At it’s core, what is React?
 
 Like Vue.js, it is a tool used to interact and manipulate the Document Object Model, or DOM, using javascript. This is why when we break down the simplest of React components into vanilla javascript it all becomes so clear.
-
-
-// use bright tabs for code blocks
-
-
-
-
-```new-component.js
-import React from 'react';
-```
 
 ```new-component.js
 import React from 'react';
@@ -49,7 +39,7 @@ root.render(myNewReactELement);
 
 The above example if pretty rudimentary, but the ideas is very simply to realize that all we are really doing at the end of the day is writing plain ol’ javascript. The React library is doing a lot of cool things under the hood to prepare what we’ve written to be read by the browser.
 
-## What is the Virtual DOM and why is that important for React?
+### What is the Virtual DOM and why is that important for React?
 
 This took me a bit to understand myself but like before let’s try to break this down and understand what the DOM is first. For example, say you’ve been drowning in memes your friends are sending you and you NEED to understand them to not fall behind in the conversation. So, of course, you go to [https://knowyourmeme.com/memes](https://knowyourmeme.com/memes) to find out why Squirtle is now a Jazz king 🎷. Once you hit that site, your browser takes the websites HTML and creates a tree of the elements on the page illustrated below. For example, in the image below, let’s call that top node a `<body>` tag, and the 2 subsequent nodes some `<section>` tags, and in each section we have a a few paragraph, or `<p>` tags.
 
