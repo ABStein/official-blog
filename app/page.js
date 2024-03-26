@@ -1,57 +1,57 @@
 import Link from 'next/link';
 import { getPosts } from './lib/initSupabase';
-import AnimatedComponent from './components/AnimatedComponent';
 import styles from './Homepage.module.scss';
+import dateFormatter from '@/app/lib/utils/dateFormatter';
+import getLatestPosts from '@/app/lib/utils/getLatestPosts'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default async function HomePage() {
     // get all posts
     const posts = await getPosts();
     // display latest posts
-    const getLatestPosts = (posts) => {
-        posts.sort((a, b) => {
-            const postB = new Date(b.created_at);
-            const postA = new Date(a.created_at);
-            return postB - postA;
-        });
-        return posts;
-    }
+
     // get latest posts
     const latestPosts = getLatestPosts(posts);
     return (
-        <div className={`lg:pt-12 pt-8 ${styles['blob-desktop']}`}>
+        <main className={`py-16 lg:py-24 ${styles['blob-desktop']}`}>
             <div className='responsive-content-width'>
-                <div className='lg:px-24 px-6'>
-                    <section className='max-w-10/12 mx-auto'>
-                        <h1 className='md:text-center lg:text-6xl text-3xl text-gray-900'>
-                            Hey there! I'm <AnimatedComponent word='Andrew.' />
-                        </h1>
-                        <p className='md:text-left lg:text-4xl md:text-2xl sm:text-xl text-gray-900 md:pt-6 pt-3'>
-                            a Web Developer from Chicago, Illinois. I am passionate about building accessible, performant, and responsive web experiences, but I am even more passionate about growing and learning on this journey through the wild world of web development.
-                        </p>
-                    </section>
+                <div className='max-w-2xl w-full'>
+                    <h1 className='text-4xl font-semibold text-gray-900'>
+                        Hey there! I'm <span className='text-indigo-500 font-bold'>Andrew</span>
+                    </h1>
+                    <p className='text-xl text-gray-900 pt-6'>
+                        a Web Developer from Chicago, Illinois. I am passionate about building accessible, performant, and responsive web experiences, but I am even more passionate about growing and learning on this journey through the wild world of web development.
+                    </p>
+                </div>
 
-                    <section className='pt-10'>
-                        <div className='xl:w-10/12 xl:mx-auto'>
-                            <h2 className='lg:text-2xl font-bold my-2'>Recently posted</h2>
-                            <div className='mt-6 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
-                                {latestPosts.slice(0, 3).map((post) => (
-                                    <div key={post.id} className='p-8 shadow-xl shadow-gray-400 rounded-2xl lg:hover:-translate-y-2 nav-link'>
-                                        <Link href={`/blog/${post.slug}/`}>
-                                            <h2 className='text-xl font-semibold'>{post.title}</h2>
-                                            <p className='pt-4'>
-                                                {`${post.content.substring(
-                                                    0,
-                                                    100
-                                                )}...`}
-                                            </p>
-                                        </Link>
+                <div className='pt-14 max-w-2xl'>
+                    <h2 className='text-xl font-medium my-2'>Recently posted</h2>
+                    <div className='my-6 mx-auto grid grid-cols-1 gap-9'>
+                        {latestPosts.slice(0, 4).map((post) => (
+                            <div key={post.id} className='nav-link group border-b-gray-300 pb-4 border-b-2'>
+                                <Link href={`/blog/${post.slug}/`}>
+                                    <p className='pb-4 text-gray-900'>{dateFormatter(post.created_at)}</p>
+                                    <h3 className='group-hover:text-sky-400 text-xl font-semibold'>{post.title}</h3>
+                                    <p className='pt-4'>
+                                        {post.description}
+                                    </p>
+                                    <div className='flex items-center pt-4'>
+                                        <span>Read more</span>
+                                        <FontAwesomeIcon icon={faArrowRight} className='text-indigo-500 ml-2 transition-transform group-hover:translate-x-1' />
                                     </div>
-                                ))}
+                                </Link>
                             </div>
+                        ))}
+                    </div>
+                    <Link href='/blog/' className='text-indigo-500 font-semibold inline-block group'>
+                        <div className='flex justify-center items-center'>
+                            <span>View all posts</span>
+                            <FontAwesomeIcon icon={faArrowRight} className='text-indigo-500 ml-2 transition-transform group-hover:translate-x-1' />
                         </div>
-                    </section>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </main>
     );
 }

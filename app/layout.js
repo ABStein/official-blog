@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CS
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS
 import NextTopLoader from 'nextjs-toploader';
-import './globals.css';
+import './globals.scss';
 
 const poppins = Poppins({weight: ['100', '200', '300', '400','500', '600', '700', '800', '900',], subsets: ['latin'], display: 'swap'});
 
