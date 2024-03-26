@@ -1,12 +1,10 @@
 import { getPostBySlug } from '../../../lib/initSupabase';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import CodeSnippet from '@/app/components/CodeSnippet';
+import dateFormatter from '@/app/lib/utils/dateFormatter';
 
 export default async function Post({ params: { slug }}) {
     const post = await getPostBySlug(slug);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(`${post.created_at}`);
-    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
     return (
         <div className='lg:pt-12 pt-8'>
             <div className='responsive-content-width'>
@@ -23,7 +21,7 @@ export default async function Post({ params: { slug }}) {
                             }}
                         />
                     </span>
-                    <p className='text-gray-900 text-base py-8'>Posted: {formattedDate}</p>
+                    <p className='text-gray-900 text-base py-8'>Posted: {dateFormatter(post.created_at)}</p>
                 </div>
             </div>
         </div>

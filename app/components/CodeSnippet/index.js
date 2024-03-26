@@ -1,5 +1,4 @@
 import { Code } from 'bright'
-import styles from './CodeSnippet.module.scss'
 
 function CodeSnippet(props) {
     return (

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getPosts } from './lib/initSupabase';
 import styles from './Homepage.module.scss';
-import formattedDate  from './lib/dateFormatter';
+import dateFormatter from '@/app/lib/utils/dateFormatter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -37,7 +37,7 @@ export default async function HomePage() {
                         {latestPosts.slice(0, 4).map((post) => (
                             <div key={post.id} className='rounded-2xl p-4 lg:hover:bg-gray-300 lg:hover:bg-opacity-30 nav-link'>
                                 <Link href={`/blog/${post.slug}/`}>
-                                    <p className='pb-4 text-indigo-500'>{formattedDate(post.created_at)}</p>
+                                    <p className='pb-4 text-indigo-500'>{dateFormatter(post.created_at)}</p>
                                     <h3 className='text-xl font-semibold'>{post.title}</h3>
                                     <p className='pt-4'>
                                         {post.description}
