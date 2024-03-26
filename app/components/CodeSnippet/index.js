@@ -1,14 +1,12 @@
 import { Code } from 'bright'
-import { titleBar } from '@/app/extension'
-
+import styles from './CodeSnippet.module.scss'
 
 function CodeSnippet(props) {
     return (
         <Code
-            codeClassName='lg:text-sm text-xs'
             {...props}
-            theme={'dracula'}
-            extensions={[titleBar]}
+            theme={'one-dark-pro'}
+            className='lg:text-sm text-xs'
         />
     )
 }
