@@ -1,0 +1,19 @@
+.name-underline {
+    border-bottom: 4px solid transparent;
+}
+
+
+.name-underline:hover {
+    border-bottom: 4px solid #4f46e5;
+    transition: all 1s;
+}
+
+.blob-desktop {
+    @media #{'screen and (min-width: 60rem)'} {
+        background-image: url('https://rhbyzhuaaoerydufggrk.supabase.co/storage/v1/object/sign/Images/gradient-frame.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJJbWFnZXMvZ3JhZGllbnQtZnJhbWUuc3ZnIiwiaWF0IjoxNzEwODY4ODY3LCJleHAiOjE3NDI0MDQ4Njd9.26s9QaYGI42CGHVSZjrXKSdjv08AgGsNwHDPwobuHcI&t=2024-03-19T17%3A21%3A07.346Z');
+        background-repeat: no-repeat;
+        background-position: right calc(50% + -400px) bottom calc(50% + 126px);
+        background-size: clamp(1px, 80%, 500px) auto;
+    }
+}
+

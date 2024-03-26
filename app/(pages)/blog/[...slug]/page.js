@@ -19,7 +19,7 @@ export default async function Post({ params: { slug }}) {
                                     source={post.content}
                                     components={{
                                         pre: CodeSnippet,
-                                        p: (props) => <p {...props} className='pb-4 md:text-lg text-base' />,
+                                        p: (props) => <p {...props} className='pb-4 md:text-xl text-base' />,
                                     }}
                                 />
                             </span>

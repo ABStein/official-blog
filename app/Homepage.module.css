@@ -1,9 +1,0 @@
-.name-underline {
-    border-bottom: 4px solid transparent;
-}
-
-
-.name-underline:hover {
-    border-bottom: 4px solid #4f46e5;
-    transition: all 1s;
-}
