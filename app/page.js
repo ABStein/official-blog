@@ -33,15 +33,19 @@ export default async function HomePage() {
 
                 <div className='pt-14 max-w-2xl'>
                     <h2 className='text-xl font-medium my-2'>Recently posted</h2>
-                    <div className='my-6 mx-auto grid grid-cols-1 gap-4'>
+                    <div className='my-6 mx-auto grid grid-cols-1 gap-9'>
                         {latestPosts.slice(0, 4).map((post) => (
-                            <div key={post.id} className='rounded-2xl p-4 lg:hover:bg-gray-300 lg:hover:bg-opacity-30 nav-link'>
+                            <div key={post.id} className='rounded-2xl nav-link group'>
                                 <Link href={`/blog/${post.slug}/`}>
                                     <p className='pb-4 text-indigo-500'>{dateFormatter(post.created_at)}</p>
-                                    <h3 className='text-xl font-semibold'>{post.title}</h3>
+                                    <h3 className='group-hover:text-sky-400 text-xl font-semibold'>{post.title}</h3>
                                     <p className='pt-4'>
                                         {post.description}
                                     </p>
+                                    <div className='flex items-center pt-4'>
+                                        <span>Read more</span>
+                                        <FontAwesomeIcon icon={faArrowRight} className='text-indigo-500 ml-2 transition-transform group-hover:translate-x-1' />
+                                    </div>
                                 </Link>
                             </div>
                         ))}

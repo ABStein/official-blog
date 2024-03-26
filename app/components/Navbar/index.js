@@ -32,7 +32,6 @@ const links = [
     }
 ]
 
-
 export default function Navbar() {
     const pathname = usePathname();
 
@@ -45,7 +44,7 @@ export default function Navbar() {
         return pathname === href;
     };
     return (
-        <header className='mx-auto lg:pt-32 pt-12 mb-6'>
+        <header className='mx-auto pt-10 mb-6'>
             <div className='flex justify-center items-center px-6 md:px-14 lg:px-24 w-full'>
                 <div className='flex flex-row'>
                     {links.map(({ href, label}) => (
