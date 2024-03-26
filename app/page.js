@@ -9,8 +9,8 @@ export default async function HomePage() {
     // display latest posts
     const getLatestPosts = (posts) => {
         posts.sort((a, b) => {
-            const postA = new Date(a.created_at);
             const postB = new Date(b.created_at);
+            const postA = new Date(a.created_at);
             return postB - postA;
         });
         return posts;
