@@ -1,6 +1,7 @@
 import { Poppins } from 'next/font/google';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 //https://fontawesome.com/docs/web/use-with/react/use-with
 import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
                 />
                 <Navbar />
                 {children}
+                <Analytics />
                 <Footer />
             </body>
         </html>
