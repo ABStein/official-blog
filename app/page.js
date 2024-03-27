@@ -68,7 +68,7 @@ export default async function HomePage() {
                 </div>
                 <div className='grid gap-12 lg:grid-cols-10'>
                     <div className='lg:col-span-7'>
-                        <h3 className={`text-xl font-semibold my-2 underline`}>Recently posted</h3>
+                        <h3 className='text-xl font-semibold my-2 underline'>Recently posted</h3>
                         <div className='my-6 mx-auto grid grid-cols-1 gap-9'>
                             {latestPosts.slice(0, 4).map((post) => (
                                 <div key={post.id} className='nav-link group border-b-gray-300 pb-4 border-b-2'>
