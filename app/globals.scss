@@ -52,10 +52,10 @@ body {
     .responsive-content-width {
         @apply max-w-xl mx-auto px-4;
         @media #{'screen and (min-width: 48rem)'} {
-            @apply max-w-2xl mx-auto px-4;
+            @apply max-w-screen-md mx-auto px-4;
         }
-        @media #{'screen and (min-width: 64rem)'} {
-            @apply max-w-3xl mx-auto px-4;
+        @media #{'screen and (min-width: 1280px)'} {
+            @apply max-w-screen-xl mx-auto px-6;
         }
     }
 }
