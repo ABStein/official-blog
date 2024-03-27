@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPosts } from './lib/initSupabase';
-import styles from './Homepage.module.scss';
+// import styles from './Homepage.module.scss';
 import dateFormatter from '@/app/lib/utils/dateFormatter';
 import getLatestPosts from '@/app/lib/utils/getLatestPosts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,7 +30,7 @@ export default async function HomePage() {
     // get latest posts
     const latestPosts = getLatestPosts(posts);
     return (
-        <main className={`py-16 lg:py-24`}>
+        <main className='py-16 lg:py-24'>
             <div className='responsive-content-width'>
                 <div className='grid lg:grid-cols-8 md:grid-cols-6'>
                     <div className='lg:col-span-6 md:col-span-4 pb-4'>
