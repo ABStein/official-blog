@@ -1,25 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-import styles from './Navbar.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faLinkedin,
-    faGithub,
-} from '@fortawesome/free-brands-svg-icons';
-
-const icons = [
-    {
-        href: 'https://github.com/ABStein',
-        icon: faGithub,
-        alt: 'Check out my Github'
-    },
-    {
-        href: 'https://www.linkedin.com/in/andrew-stein-755b8b11a',
-        icon: faLinkedin,
-        alt: 'Connect with me on LinkedIn'
-    },
-]
+import styles from './Navbar.module.scss';
 
 const links = [
     {
@@ -48,27 +30,14 @@ export default function Navbar() {
             <div className='flex justify-between items-center'>
                 <div className='flex flex-row'>
                     {links.map(({ href, label}) => (
-                        <Link key={href} className={`${isActive(href) ? styles['active'] : styles['inactive']} md:text-md text-sm text-gray-900 inline-block p-2 cursor-pointer`} href={href}>
+                        <Link key={href} className={`${isActive(href) ? styles['active'] : styles['inactive']} lg:text-lg md:text-base text-sm text-gray-900 inline-block p-2 cursor-pointer`} href={href}>
                             {label}
                         </Link>
                     ))}
                 </div>
-                <div className='flex items-center'>
-                    {icons.map(({icon, href, alt}, index) => (
-                        <Link
-                            href={href}
-                            className='nav-link hover:text-indigo-500 text-gray-900 text-xl px-2 py-1 '
-                            target='_blank'
-                            key={index}
-                            alt={alt}
-                        >
-                            <FontAwesomeIcon size='lg' icon={icon} />
-                        </Link>
-                    ))}
-                    <Link className='bg-gray-900 text-gray-50 hover:bg-indigo-500 hover:text-gray-50 mx-2 p-2 inline-block cursor-pointer md:text-md text-sm rounded-md nav-link' href='https://drive.google.com/file/d/1NRiEVTDCSEcLudo95zl7Nzces14OUURf/view?usp=drive_link' target='_blank' rel='noreferrer'>
-                        Resume
-                    </Link>
-                </div>
+                <Link className={`inline-block cursor-pointer lg:text-lg md:text-base text-sm rounded-md bg-gradient-to-r from-green-500 to-indigo-500 hover:from-indigo-500 hover:to-green-500 ${styles['background-animate']} p-2 text-white`} href='https://drive.google.com/file/d/1NRiEVTDCSEcLudo95zl7Nzces14OUURf/view?usp=drive_link' target='_blank' rel='noreferrer'>
+                    Resume
+                </Link>
             </div>
         </header>
     );

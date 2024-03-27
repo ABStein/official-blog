@@ -1,4 +1,4 @@
-import { Poppins } from 'next/font/google';
+import { Lato } from 'next/font/google';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
@@ -9,7 +9,10 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS
 import NextTopLoader from 'nextjs-toploader';
 import './globals.scss';
 
-const poppins = Poppins({weight: ['100', '200', '300', '400','500', '600', '700', '800', '900',], subsets: ['latin'], display: 'swap'});
+const lato = Lato({
+    weight: ['100', '300', '400', '700', '900'],
+    subsets: ['latin'], display: 'swap'
+})
 
 export const metadata = {
     title: 'Andrew Stein',
@@ -19,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
-            <body className={`${poppins.className}`}>
+            <body className={`antialiased ${lato.className}`}>
                 <NextTopLoader
                     // color is gray-900
                     color='#212121'
