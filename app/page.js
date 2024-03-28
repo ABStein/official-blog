@@ -35,7 +35,11 @@ export default async function HomePage() {
                 <div className='grid lg:grid-cols-8 md:grid-cols-6'>
                     <div className='lg:col-span-6 md:col-span-4 pb-4'>
                         <h1 className='text-4xl font-semibold text-gray-900'>
-                            Hey there! I'm <span className='text-indigo-500 font-bold'>Andrew</span>
+                            Hey there! I'm{' '}
+                            <span className='bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent font-bold'>
+                                Andrew
+                            </span>
+
                         </h1>
                         <p className='lg:text-xl text-lg text-gray-900 pt-6'>
                             A Web Developer from Chicago, Illinois. I am passionate about building accessible, performant, and responsive web experiences, but I am even more passionate about growing and learning on this journey through the wild world of web development.
@@ -74,7 +78,7 @@ export default async function HomePage() {
                                 <div key={post.id} className='nav-link group border-b-gray-300 pb-4 border-b-2'>
                                     <Link href={`/blog/${post.slug}/`}>
                                         <p className='pb-4 text-gray-900'>{dateFormatter(post.created_at)}</p>
-                                        <h3 className='group-hover:text-sky-600 text-lg font-semibold'>{post.title}</h3>
+                                        <h3 className='group-hover:underline group-hover:decoration-wavy group-hover:decoration-pink-500 text-lg font-semibold'>{post.title}</h3>
                                         <p className='pt-4'>
                                             {post.description}
                                         </p>
@@ -99,7 +103,7 @@ export default async function HomePage() {
                         <div className='my-6 mx-auto grid grid-cols-1 gap-9'>
                             <div className='nav-link group border-b-gray-300 pb-4 border-b-2'>
                                 <Link href='/projects/careers-redesign'>
-                                    <h3 className='group-hover:text-sky-400 text-lg font-semibold'>Sprout Social Careers Redesign</h3>
+                                    <h3 className='group-hover:underline group-hover:decoration-wavy group-hover:decoration-pink-500 text-lg font-semibold'>Sprout Social Careers Redesign</h3>
                                     <p className='pt-4'>
                                         Redesigned the Sprout Social careers site using React, Next.js, and Storybook.js to create a more modern and accessible experience for job seekers.
                                     </p>
